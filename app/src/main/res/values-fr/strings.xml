@@ -10,7 +10,7 @@
     <string name="checkboxIsOn"> الصندوق يعمل </string>
     <string name="checkboxIsOff"> الصندوق لا يعمل </string>
     <string name="MyGUI"> انظر الى جي يو اي</string>
-    <string name="info"> هنا بعض المعلومات </string>
+    <string name="info"> هنا معلومات </string>
     <string name="switchIsOn"> زر التبديل يعمل </string>
     <string name="switchIsOff"> زر التبديل لا يعمل </string>
     <string name="enterPass">ادخل الباسوورد </string>

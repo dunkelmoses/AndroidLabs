@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/MyGUI"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:gravity="left"
+        android:text="@string/ButtonText"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        app:srcCompat="@drawable/flag" />
+
+    <Switch
+        android:id="@+id/swi"
+        android:layout_width="200dp"
+        android:layout_height="49dp"
+        android:layout_below="@+id/checkbox"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="51dp"
+        android:layout_toEndOf="@id/imageView2"
+        android:text="@string/switchItUp" />
+
+    <EditText
+        android:id="@+id/textView5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView2"
+        android:hint="@string/Type" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/button"
+        android:text="@string/checkbox" />
+</RelativeLayout>

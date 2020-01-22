@@ -1,6 +1,21 @@
+
+
 <resources>
     <string name="app_name">Lab1</string>
     <string name="Hello">Hello World</string>
-    <string name="ButtonText">I\’m a button</string>
-
+    <string name="Type">Type here</string>
+    <string name="ButtonText">Click Here</string>
+    <string name="checkbox"> Check this out!</string>
+    <string name="checkboxIsOn"> The check box now is on</string>
+    <string name="checkboxIsOff"> The check box now is off</string>
+    <string name="switchItUp"> Switch On/Off</string>
+    <string name="MyGUI"> Look at my GUI </string>
+    <string name="info"> Here is more information </string>
+    <string name="switchIsOn"> The switch now is on</string>
+    <string name="switchIsOff"> The switch now is off </string>
+    <string name="enterPass">Type your password: </string>
+    <string name="enterEmail">Enter your email address: </string>
+    <string name="typeEmail">Type email here: </string>
+    <string name="login">LOGIN</string>
+    <string name="undo">Undo</string>
 </resources>

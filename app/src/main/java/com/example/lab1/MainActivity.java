@@ -17,12 +17,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_linear);
+        setContentView(R.layout.activity_main_relative);
+        String undo = getString(R.string.undo);
 
         // these are the IDs from the xml files. Check them.
         but = findViewById(R.id.button);
         but.setOnClickListener( (click) ->  {
-            Toast.makeText(MainActivity.this, "Here is more information", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, getString(R.string.info), Toast.LENGTH_LONG).show();
 
         }  );
         checkBox = findViewById(R.id.checkbox);
@@ -30,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
             if (checkBox.isChecked()) {
                 Snackbar.make(checkBox, getString(R.string.checkboxIsOn) , Snackbar.LENGTH_LONG)
-                        .setAction("Undo", click -> compoundButton.setChecked(!b))
+                        .setAction(undo, click -> compoundButton.setChecked(!b))
                         .show();
             }
             else {
                 Snackbar.make(checkBox, getString(R.string.checkboxIsOff) , Snackbar.LENGTH_LONG)
-                        .setAction("Undo", click -> compoundButton.setChecked(!b))
+                        .setAction(undo, click -> compoundButton.setChecked(!b))
                         .show();
             }
         });
@@ -44,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
             if (sw.isChecked()) {
                 Snackbar.make(sw, getString(R.string.switchIsOn) , Snackbar.LENGTH_LONG)
-                        .setAction("Undo", click -> compoundButton.setChecked(!b))
+                        .setAction(undo, click -> compoundButton.setChecked(!b))
                         .show();
             }
             else {
                 Snackbar.make(sw, getString(R.string.switchIsOff) , Snackbar.LENGTH_LONG)
-                        .setAction("Undo", click -> compoundButton.setChecked(!b))
+                        .setAction(undo, click -> compoundButton.setChecked(!b))
                         .show();
             }
         });
