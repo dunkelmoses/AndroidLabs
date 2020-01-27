@@ -12,14 +12,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 public class MainActivity extends AppCompatActivity {
-    CheckBox checkBox;
-    Button but;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_relative);
         String undo = getString(R.string.undo);
-
+        CheckBox checkBox;
+        Button but;
         // these are the IDs from the xml files. Check them.
         but = findViewById(R.id.button);
         but.setOnClickListener( (click) ->  {
