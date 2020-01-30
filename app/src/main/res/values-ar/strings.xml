@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <string name="app_name">لاب 1</string>
-    <string name="Hello">مرحبا</string>
-    <string name="ButtonText">انا زر</string>
-    <string name="Type">اكتب هنا</string>
-    <string name="checkbox"> اضغط هنا</string>
-    <string name="switchItUp"> هنا التبديل </string>
-    <string name="checkboxIsOn"> الصندوق يعمل </string>
-    <string name="checkboxIsOff"> الصندوق لا يعمل </string>
-    <string name="MyGUI"> انظر الى جي يو اي</string>
-    <string name="info"> هنا بعض المعلومات </string>
-    <string name="switchIsOn"> زر التبديل يعمل </string>
-    <string name="switchIsOff"> زر التبديل لا يعمل </string>
+
     <string name="enterPass">ادخل الباسوورد </string>
     <string name="enterEmail">ادخل الايميل </string>
-    <string name="typeEmail">اكتب الايميل </string>
-    <string name="login">تسجيل الدخول</string>
-    <string name="undo">رجوع</string>
+    <string name="typeEmail">اكتب الايميل هنا </string>
+    <string name="login">دخول</string>
+    <string name="yourProfile">الصفحه الشخصية</string>
+    <string name="yourName">اسمك: </string>
+    <string name="yourEmail">ايميلك </string>
+    <string name="yourPic">صورتك</string>
+    <string name="clickTheButton"> اضغط على الزر في الاعلى لاخذ صورة</string>
+    <string name="enterEmail2">ادخل ايميلك</string>
+    <string name="enterName">ادخل اسمك</string>
+    <string name="app_name">لاب 1</string>
+    <string name="Hello">مرحبا يا شعب الله</string>
 
 </resources>
