@@ -15,6 +15,12 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageButton mImageButton;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -27,25 +33,20 @@ public class ProfileActivity extends AppCompatActivity {
             }
     }
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         mImageButton = findViewById(R.id.imageButton);
-        mImageButton.setOnClickListener(v ->
-        {
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        });
-        Log.e(ACTIVITY_NAME,"In onCreate()");
+        mImageButton.setOnClickListener(b -> dispatchTakePictureIntent());
 
         Intent dataSent = getIntent();
         String emailSent = dataSent.getStringExtra("EMAIL");
         String formattedString = String.format(emailSent);
         EditText email = findViewById(R.id.EditText2);
         email.setText(formattedString);
-
+        Log.e(ACTIVITY_NAME,"In onCreate()");
     }
 
     @Override
