@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -30,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
             mImageButton.setImageBitmap(imageBitmap);
             Log.e(ACTIVITY_NAME,"In onActivityResult");
 
-            }
+        }
     }
     @Override
 
@@ -38,14 +39,20 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        mImageButton = findViewById(R.id.imageButton);
+        mImageButton = findViewById(R.id.imageButtonPicture);
         mImageButton.setOnClickListener(b -> dispatchTakePictureIntent());
 
         Intent dataSent = getIntent();
         String emailSent = dataSent.getStringExtra("EMAIL");
         String formattedString = String.format(emailSent);
-        EditText email = findViewById(R.id.EditText2);
+        EditText email = findViewById(R.id.editText4);
         email.setText(formattedString);
+        Button gotochatButton = findViewById(R.id.buttongotochat);
+
+        gotochatButton.setOnClickListener( v -> {
+            Intent chatIntent = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(chatIntent);
+        });
         Log.e(ACTIVITY_NAME,"In onCreate()");
     }
 
@@ -59,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onStart();
         Log.e(ACTIVITY_NAME, "In onStart()");
 
-        }
+    }
     @Override
     protected void onPause() {
         super.onPause();

@@ -15,5 +15,9 @@
     <string name="enterName">ادخل اسمك</string>
     <string name="app_name">لاب 1</string>
     <string name="Hello">مرحبا يا شعب الله</string>
+    <string name="goToChat">اذهب للدردشه</string>
+    <string name="send">ارسل</string>
+    <string name="receive">استقبل</string>
+
 
 </resources>

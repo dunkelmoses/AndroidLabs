@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
         String savedString = prefs.getString("ReserveName", "");
 
-        EditText typeField = findViewById(R.id.edEmail);
+        EditText typeField = findViewById(R.id.editTextEmail);
         typeField.setText(savedString);
-        Button saveButton = findViewById(R.id.button);
+        Button saveButton = findViewById(R.id.login);
 
         saveButton.setOnClickListener( v -> {
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             saveSharedPrefs( emailTyped );
             startActivity(goToProfile);
         });
+
     }
 
     private void saveSharedPrefs(String stringToSave)
