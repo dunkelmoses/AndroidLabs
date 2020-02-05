@@ -1,18 +1,10 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">Hello World!</string>
-    <string name="ButtonText">I am a button</string>
-    <string name="HeaderText">Here are my widgets:</string>
-    <string name="ButtonText2">Button</string>
-    <string name="CheckText">Check this out!</string>
-    <string name="SwitchText">Switch on / off</string>
-    <string name="HintText">Type your answer here</string>
-    <string name="ImageBtnDescription">National Flag</string>
     <string name="email_notification">Enter your Email address:</string>
     <string name="password_notification">Type your password:</string>
     <string name="email_hint">Type email here</string>
     <string name="login_button_text">LOGIN</string>
-    <string name="preference_file_key">FileName</string>
     <string name="preference_reserved_email">EmailAddress</string>
     <string name="profile_header_label">Your profile</string>
     <string name="profile_name_label">Your name:</string>

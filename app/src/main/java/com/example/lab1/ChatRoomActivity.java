@@ -13,11 +13,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class ChatRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText editText;
+    private List<String> elements ;
 
     private MyListAdapter adapter;
 
@@ -37,7 +41,23 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
 
         Button buttonReceived = findViewById(R.id.buttonReceive);
         buttonReceived.setOnClickListener(this);
+        ListView listView;
+        listView = (ListView)findViewById(R.id.listConversation);
+        listView.setOnItemLongClickListener(( parent,  view,  position,  id) -> {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Do you want to delete the message?")
+
+                    .setPositiveButton("yes", (click, arg) -> {
+                        adapter.remove(adapter.getItem(position));
+                    })
+                    .setNegativeButton("No", (click, arg) -> {  })
+                    .create().show();
+            return true;
+        });
+
     }
+
 
     @Override
     public void onClick(View v) {
@@ -128,4 +148,5 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
             return view;
         }
     }
+
 }

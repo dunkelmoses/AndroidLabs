@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
-    <string name="enterPass">ادخل الباسوورد </string>
-    <string name="enterEmail">ادخل الايميل </string>
-    <string name="typeEmail">اكتب الايميل هنا </string>
-    <string name="login">دخول</string>
-    <string name="yourProfile">الصفحه الشخصية</string>
-    <string name="yourName">اسمك: </string>
-    <string name="yourEmail">ايميلك </string>
-    <string name="yourPic">صورتك</string>
-    <string name="clickTheButton"> اضغط على الزر في الاعلى لاخذ صورة</string>
-    <string name="enterEmail2">ادخل ايميلك</string>
-    <string name="enterName">ادخل اسمك</string>
-    <string name="app_name">لاب 1</string>
-    <string name="Hello">مرحبا يا شعب الله</string>
-    <string name="goToChat">اذهب للدردشه</string>
-    <string name="send">ارسل</string>
-    <string name="receive">استقبل</string>
-
+        <string name="app_name">AndroidLabs</string>
+        <string name="hello_message">مرحبا ايها العالم</string>
+        <string name="email_notification">ادخل الايميل</string>
+        <string name="password_notification">ادخل الباسوورد</string>
+        <string name="email_hint">اكتب الايميل</string>
+        <string name="login_button_text">دخول</string>
+        <string name="preference_reserved_email">ايميل</string>
+        <string name="profile_header_label">صفحتك</string>
+        <string name="profile_name_label">اسمك:</string>
+        <string name="profile_email_label">ايميلك:</string>
+        <string name="profile_picure_label">صورتك:</string>
+        <string name="name_hint">اكتب اسمك</string>
+        <string name="take_picture_hint"> اضغط الزر في الاعلى لاخذ صوره</string>
+        <string name="ButtonText_GoToChat">اذهب للمحادثه</string>
+        <string name="ButtonText_Send">ارسل</string>
+        <string name="ButtonText_Receive">استقبل</string>
+        <string name="HintText_chat">اكتب هنا</string>
 
 </resources>
