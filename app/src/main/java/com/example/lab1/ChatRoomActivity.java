@@ -1,16 +1,11 @@
 package com.example.lab1;
 
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -19,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ChatRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText editText;
-
     private MyListAdapter adapter;
-
+    private ListView listConv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,21 +23,19 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
 
 
         editText = findViewById(R.id.editTextChatMsg);
-        ListView listConv = findViewById(R.id.listConversation);
+        listConv = findViewById(R.id.listConversation);
         adapter = new MyListAdapter(this, R.id.listConversation);
         listConv.setAdapter(adapter);
-        String input = editText.getText().toString();
-
         Button buttonSend = findViewById(R.id.buttonSend);
         buttonSend.setOnClickListener(this);
 
         Button buttonReceived = findViewById(R.id.buttonReceive);
         buttonReceived.setOnClickListener(this);
 
-
         listConv.setOnItemLongClickListener( (p, b, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Do you want to delete this message?")
+                    .setMessage("the row is"+pos)
                     //what the Yes button does:
                     .setPositiveButton("Yes", (click, arg) -> {
                     adapter.remove(adapter.getItem(pos));
@@ -66,9 +58,11 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.buttonSend:
                 adapter.add(new Message(input, MessageType.SENT));
+
                 break;
             case R.id.buttonReceive:
                 adapter.add(new Message(input, MessageType.RECEIVED));
+
                 break;
             default:
                 break;
@@ -77,68 +71,7 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
         editText.setText("");
     }
 
-
-    /**
-     * MessageType Enum Type
-     */
-    private enum MessageType { SENT, RECEIVED }
-
-    /**
-     * Message representing class
-     */
-    private class Message {
-        private String message;
-        private MessageType type;
-
-        Message(String message, MessageType type) {
-            this.message = message;
-            this.type = type;
-        }
-
-        String getMessage() {
-            return message;
-        }
-
-        MessageType getType() {
-            return type;
-        }
-
-    }
-
-    /**
-     * Customized List Adapter, with built-in container for Message
-     */
-    private class MyListAdapter extends ArrayAdapter<Message> {
-        private LayoutInflater inflater;
+    enum MessageType { SENT, RECEIVED }
 
 
-        MyListAdapter(Context context, int resource) {
-            super(context, resource);
-            this.inflater = LayoutInflater.from(context);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            Message message = getItem(position);
-
-            View view;
-            TextView textView;
-
-            if (message.getType() == MessageType.SENT) {
-                view = inflater.inflate(R.layout.chat_message_sent, null);
-                textView = view.findViewById(R.id.textViewSent);
-                textView.setText(message.getMessage());
-                return view;
-
-            } else if (message.getType() == MessageType.RECEIVED) {
-                view = inflater.inflate(R.layout.chat_message_received, null);
-                textView = view.findViewById(R.id.textViewReceived);
-                textView.setText(message.getMessage());
-                return view;
-            }
-
-            return null;
-        }
-    }
 }
