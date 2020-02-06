@@ -16,12 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
-
 public class ChatRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText editText;
-    private List<String> elements ;
 
     private MyListAdapter adapter;
 
@@ -35,29 +32,29 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
         ListView listConv = findViewById(R.id.listConversation);
         adapter = new MyListAdapter(this, R.id.listConversation);
         listConv.setAdapter(adapter);
+        String input = editText.getText().toString();
 
         Button buttonSend = findViewById(R.id.buttonSend);
         buttonSend.setOnClickListener(this);
 
         Button buttonReceived = findViewById(R.id.buttonReceive);
         buttonReceived.setOnClickListener(this);
-        ListView listView;
-        listView = (ListView)findViewById(R.id.listConversation);
-        listView.setOnItemLongClickListener(( parent,  view,  position,  id) -> {
 
+
+        listConv.setOnItemLongClickListener( (p, b, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("Do you want to delete the message?")
-
-                    .setPositiveButton("yes", (click, arg) -> {
-                        adapter.remove(adapter.getItem(position));
+            alertDialogBuilder.setTitle("Do you want to delete this message?")
+                    //what the Yes button does:
+                    .setPositiveButton("Yes", (click, arg) -> {
+                    adapter.remove(adapter.getItem(pos));
                     })
-                    .setNegativeButton("No", (click, arg) -> {  })
+                    //What the No button does:
+                    .setNegativeButton("No", (click, arg) -> { })
+
+                    //Show the dialog
                     .create().show();
             return true;
-        });
-
-    }
-
+        });    }
 
     @Override
     public void onClick(View v) {
@@ -106,13 +103,6 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
             return type;
         }
 
-        @Override
-        public String toString() {
-            return "Message{" +
-                    "message='" + message + '\'' +
-                    ", type=" + type +
-                    '}';
-        }
     }
 
     /**
@@ -132,21 +122,23 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
 
             Message message = getItem(position);
 
-            View view = null;
-            TextView textView = null;
+            View view;
+            TextView textView;
 
             if (message.getType() == MessageType.SENT) {
                 view = inflater.inflate(R.layout.chat_message_sent, null);
                 textView = view.findViewById(R.id.textViewSent);
+                textView.setText(message.getMessage());
+                return view;
 
             } else if (message.getType() == MessageType.RECEIVED) {
                 view = inflater.inflate(R.layout.chat_message_received, null);
                 textView = view.findViewById(R.id.textViewReceived);
+                textView.setText(message.getMessage());
+                return view;
             }
-            textView.setText(message.getMessage());
 
-            return view;
+            return null;
         }
     }
-
 }

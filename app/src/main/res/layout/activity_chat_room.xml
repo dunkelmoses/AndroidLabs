@@ -30,8 +30,7 @@
         android:layout_toStartOf="@id/buttonReceive"
         android:layout_toEndOf="@id/buttonSend"
         android:hint="@string/HintText_chat"
-        android:inputType="textPersonName"
-        android:textSize="20dp"/>
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/buttonReceive"
