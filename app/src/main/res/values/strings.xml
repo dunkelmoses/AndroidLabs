@@ -16,6 +16,8 @@
     <string name="ButtonText_Send">Send</string>
     <string name="ButtonText_Receive">Receive</string>
     <string name="HintText_chat">Type here</string>
+    <string name="rowName">The row is: </string>
+    <string name="databaseName">The database ID is:  </string>
 
 
 

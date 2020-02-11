@@ -1,6 +1,8 @@
 package com.example.lab1;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 public class MyListAdapter extends ArrayAdapter<Message> {
     private LayoutInflater inflater;
+    public static final String ACTIVITY_NAME = "CHATROOM_ACTIVITY";
 
 
     MyListAdapter(Context context, int resource) {
@@ -38,5 +41,24 @@ public class MyListAdapter extends ArrayAdapter<Message> {
         }
 
         return null;
+    }
+    public void printCursor(Cursor cursor) {
+
+        int columnNumber = cursor.getColumnCount();
+        Log.i(ACTIVITY_NAME, "Column number: " + columnNumber);
+
+        for (int i = 0; i < columnNumber; ++i) {
+            Log.i(ACTIVITY_NAME, "Column[" + i + "] name:" + cursor.getColumnName(i));
+        }
+
+        int rows = cursor.getCount();
+        Log.i(ACTIVITY_NAME, "There are " + rows + " rows in cursor");
+
+        while (cursor.moveToNext()) {
+            StringBuilder string = new StringBuilder();
+            for (int j = 0; j < columnNumber; ++j)
+                string.append(cursor.getString(j) + " ");
+            Log.i(ACTIVITY_NAME, string.toString());
+        }
     }
 }

@@ -1,10 +1,13 @@
 package com.example.lab1;
+
 public class Message {
     private String message;
     private ChatRoomActivity.MessageType type;
+    private long id;
 
-    Message(String message, ChatRoomActivity.MessageType type) {
+    Message(long id, String message, ChatRoomActivity.MessageType type) {
         this.message = message;
+        this.id = id;
         this.type = type;
     }
 

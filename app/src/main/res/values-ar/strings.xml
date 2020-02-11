@@ -18,5 +18,7 @@
         <string name="ButtonText_Send">ارسل</string>
         <string name="ButtonText_Receive">استقبل</string>
         <string name="HintText_chat">اكتب هنا</string>
+        <string name="rowName">الصف:  </string>
+        <string name="databaseName">]داتا بيز:</string>
 
 </resources>
