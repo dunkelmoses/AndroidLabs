@@ -21,19 +21,17 @@ public class MyListAdapter extends ArrayAdapter<Message> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         Message message = getItem(position);
-
         View view;
         TextView textView;
 
-        if (message.getType() == ChatRoomActivity.MessageType.SENT) {
+        if (message.getType().equals("SENT")) {
             view = inflater.inflate(R.layout.chat_message_sent, null);
             textView = view.findViewById(R.id.textViewSent);
             textView.setText(message.getMessage());
             return view;
 
-        } else if (message.getType() == ChatRoomActivity.MessageType.RECEIVED) {
+        } else if (message.getType().equals("RECEIVED")) {
             view = inflater.inflate(R.layout.chat_message_received, null);
             textView = view.findViewById(R.id.textViewReceived);
             textView.setText(message.getMessage());

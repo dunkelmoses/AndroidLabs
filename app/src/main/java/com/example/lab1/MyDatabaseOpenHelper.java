@@ -11,26 +11,16 @@ public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MessagesDB";
     public static final int VERSION_NUM = 1;
     public static final String TABLE_NAME = "Messages";
+
     public static final String COL_ID = "_id";
     public static final String COL_MESSAGE = "message";
     public static final String COL_MESSAGE_TYPE = "message_type";
 
-    /**
-     * Create a helper object to create, open, and/or manage a database.
-     *
-     * @param ctx context of current activity
-     */
+
     public MyDatabaseOpenHelper(Activity ctx) {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
-
-    /**
-     * Called when the database is created for the first time. This is where the
-     * creation of tables and the initial population of the tables should happen.
-     *
-     * @param db The database.
-     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Make sure you put spaces between SQL statements and Java strings:

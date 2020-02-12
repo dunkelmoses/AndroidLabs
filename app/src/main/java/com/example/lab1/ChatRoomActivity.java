@@ -19,7 +19,8 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
     private EditText editText;
     private MyListAdapter adapter;
     private ListView listConv;
-
+    private static final String SENT = "SENT";
+    private static final String RECEIVED = "RECEIVED";
     private MyDatabaseOpenHelper dbOpener;
     private SQLiteDatabase db;
 
@@ -43,6 +44,7 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
 
         String[] columns = {MyDatabaseOpenHelper.COL_ID, MyDatabaseOpenHelper.COL_MESSAGE, MyDatabaseOpenHelper.COL_MESSAGE_TYPE};
         Cursor results = db.query(false, MyDatabaseOpenHelper.TABLE_NAME, columns, null, null, null, null, null, null);
+        adapter.printCursor(results);
 
         int messageTypeIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_MESSAGE_TYPE);
         int messageIndex = results.getColumnIndex(MyDatabaseOpenHelper.COL_MESSAGE);
@@ -57,9 +59,9 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
 
             //add the new Contact to the array list:
             if (messageType.equals("SENT")) {
-                adapter.add(new Message(id, message, MessageType.SENT));
+                adapter.add(new Message(id, message, SENT));
             } else {
-                adapter.add(new Message(id, message, MessageType.RECEIVED));
+                adapter.add(new Message(id, message, RECEIVED));
             }
         }
 
@@ -99,17 +101,16 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
             case R.id.buttonSend:
                 newRowValues.put(MyDatabaseOpenHelper.COL_MESSAGE_TYPE, "SENT");
                 newId = db.insert(MyDatabaseOpenHelper.TABLE_NAME, null, newRowValues);
-                adapter.add(new Message(newId, input, MessageType.SENT));
+                adapter.add(new Message(newId, input, SENT));
                 break;
             case R.id.buttonReceive:
                 newRowValues.put(MyDatabaseOpenHelper.COL_MESSAGE_TYPE, "RECEIVED");
                 newId = db.insert(MyDatabaseOpenHelper.TABLE_NAME, null, newRowValues);
-                adapter.add(new Message(newId, input, MessageType.RECEIVED));
+                adapter.add(new Message(newId, input, RECEIVED));
                 break;
             default:
                 break;
         }
         editText.setText("");
     }
-    enum MessageType { SENT, RECEIVED }
 }
