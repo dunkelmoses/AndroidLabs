@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -20,7 +25,13 @@
         android:ems="10"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:nextFocusDown="@id/textView2"
+        android:nextFocusUp="@id/textView"
+        android:nextFocusRight="@id/login"
+        android:nextFocusLeft="@id/editTextEmail"
+
+    />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,17 +46,29 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:nextFocusDown="@id/textView2"
+        android:nextFocusUp="@id/textView"
+        android:nextFocusRight="@id/login"
+        android:nextFocusLeft="@id/editTextEmail"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/weather"
-        android:text="Weather"/>
+        android:text="Weather"
+        android:nextFocusDown="@id/textView2"
+        android:nextFocusUp="@id/textView"
+        android:nextFocusRight="@id/login"
+        android:nextFocusLeft="@id/editTextEmail"/>
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_button_text"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:nextFocusDown="@id/textView2"
+        android:nextFocusUp="@id/textView"
+        android:nextFocusRight="@id/login"
+        android:nextFocusLeft="@id/editTextEmail"/>
 </LinearLayout>
