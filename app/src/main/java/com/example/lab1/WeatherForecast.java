@@ -36,6 +36,7 @@ public class WeatherForecast extends AppCompatActivity {
     private ImageView weather;
     private Context context = this;
     private String fileName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,15 +109,16 @@ public class WeatherForecast extends AppCompatActivity {
 
                             weatherIcon = xpp.getAttributeValue(null, "icon");
                             fileName = weatherIcon + ".png";
-                            Log.e("AsyncTask", "Found icon name: " + weatherIcon);
-                            if (fileExistance(fileName)) {
+                            Log.e("AsyncTask", "Found icon name: " + fileName);
+                            if (fileExistance(weatherIcon)) {
                                 FileInputStream fis = null;
                                 try {
-
-                                    fis = new FileInputStream(getBaseContext().getFileStreamPath(fileName));
+                                    File file = getBaseContext().getFileStreamPath(fileName);
+                                    fis = new FileInputStream(file);
                                 } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
+                                    e.getMessage();
                                 }
+                                Log.e("AsyncTask",fileName);
                                 image = BitmapFactory.decodeStream(fis);
 
 
@@ -184,7 +186,6 @@ public class WeatherForecast extends AppCompatActivity {
             File file = getBaseContext().getFileStreamPath(fname);
             return file.exists();
         }
-
 
 
         @Override
