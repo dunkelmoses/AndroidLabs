@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
             saveSharedPrefs( emailTyped );
             startActivity(goToProfile);
         });
-
+        Button weather = findViewById(R.id.weather);
+        weather.setOnClickListener( v -> {
+            Intent goToProfile = new Intent(MainActivity.this, WeatherForecast.class);
+            startActivity(goToProfile);
+        });
     }
 
     private void saveSharedPrefs(String stringToSave)
