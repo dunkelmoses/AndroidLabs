@@ -1,4 +1,4 @@
-package com.example.lab1;
+package com.example.wear;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button saveButton = findViewById(R.id.login);
 
         saveButton.setOnClickListener( v -> {
-            Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+            Intent goToProfile = new Intent(MainActivity.this, MainActivityWatch.class);
             String emailTyped = typeField.getText().toString();
             goToProfile.putExtra("EMAIL", emailTyped);
             saveSharedPrefs( emailTyped );
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button weather = findViewById(R.id.weather);
         weather.setOnClickListener( v -> {
-            Intent goToProfile = new Intent(MainActivity.this, WeatherForecast.class);
+            Intent goToProfile = new Intent(MainActivity.this, MainActivityWatch.class);
             startActivity(goToProfile);
         });
     }
