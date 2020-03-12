@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-        <string name="app_name">AndroidLabs</string>
-        <string name="hello_message">مرحبا ايها العالم</string>
-        <string name="email_notification">ادخل الايميل</string>
-        <string name="password_notification">ادخل الباسوورد</string>
-        <string name="email_hint">اكتب الايميل</string>
-        <string name="login_button_text">دخول</string>
-        <string name="preference_reserved_email">ايميل</string>
-        <string name="profile_header_label">صفحتك</string>
-        <string name="profile_name_label">اسمك:</string>
-        <string name="profile_email_label">ايميلك:</string>
-        <string name="profile_picure_label">صورتك:</string>
-        <string name="name_hint">اكتب اسمك</string>
-        <string name="take_picture_hint"> اضغط الزر في الاعلى لاخذ صوره</string>
+        <string name="app_name">Lab1</string>
+        <string name="hello_message"> Hello World</string>
+        <string name="emailRequest"> ادخل الايميل</string>
+        <string name="emailType">اكتب الايميل</string>
+        <string name="passRequest">اكتب الباسورد</string>
+        <string name="login">دخول</string>
+        <string name="yourProfile">صفحتك الشخصية</string>
+        <string name="yourName">اسمك: </string>
+        <string name="yourEmail">ايميلك: </string>
+        <string name="yourPic">صورتك: </string>
+        <string name="clickTheButton">اضغط على الصوره بالاعلى</string>
+        <string name="enterName">ادخل اسمك</string>
+        <string name="enterEmail">ادخل ايميلك</string>
         <string name="ButtonText_GoToChat">اذهب للمحادثه</string>
         <string name="ButtonText_Send">ارسل</string>
         <string name="ButtonText_Receive">استقبل</string>
         <string name="HintText_chat">اكتب هنا</string>
-        <string name="rowName">الصف:  </string>
-        <string name="databaseName">]داتا بيز:</string>
+        <string name="deleteMsg">هل تريد حذف هذه؟</string>
+        <string name="rowIs">الصف الذي اخترته هو </string>
+        <string name="dataBaseId">الاي دي للداتابيز </string>
+        <!--    <string name="ButtonText_StartWeatherQuery">Weather Query</string>-->
+        <string name="GoToWeather">اذهب للطقس</string>
 
+        <!-- TODO: Remove or change this placeholder text -->
+        <string name="hello_blank_fragment">مرحبا صفحه فارغه</string>
 </resources>

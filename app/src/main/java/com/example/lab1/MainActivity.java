@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -16,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.email);
+        setContentView(R.layout.activity_main);
 
-        prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
-        String savedString = prefs.getString("ReserveName", "");
+        prefs = getSharedPreferences("name", Context.MODE_PRIVATE);
+        String savedString = prefs.getString("R", "");
 
-        EditText typeField = findViewById(R.id.editTextEmail);
+        EditText typeField = findViewById(R.id.TypeEmail);
         typeField.setText(savedString);
-        Button saveButton = findViewById(R.id.login);
+        Button saveButton = findViewById(R.id.logbutton);
 
         saveButton.setOnClickListener( v -> {
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
@@ -32,19 +33,36 @@ public class MainActivity extends AppCompatActivity {
             saveSharedPrefs( emailTyped );
             startActivity(goToProfile);
         });
-
-
-        Button weather = findViewById(R.id.weather);
-        weather.setOnClickListener( v -> {
-            Intent goToProfile = new Intent(MainActivity.this, WeatherForecast.class);
-            startActivity(goToProfile);
-        });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("Main Activity", "In onStart()");
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Main Activity", "In onPause()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 
     private void saveSharedPrefs(String stringToSave)
     {
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("ReserveName", stringToSave);
+        editor.putString("R", stringToSave);
         editor.apply();
     }
 }

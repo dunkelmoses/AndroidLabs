@@ -1,5 +1,4 @@
 package com.example.lab1;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -12,77 +11,89 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private ImageButton mImageButton;
+    ImageButton takePictureBtn;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
+        Intent loginPage = getIntent();
+
+        String emailTyped = loginPage.getStringExtra("EMAIL");
+
+        EditText enterText = findViewById(R.id.EditText2);
+        enterText.setText(emailTyped);
+
+
+        takePictureBtn = findViewById(R.id.imageButton);
+        takePictureBtn.setOnClickListener(c -> {
+
+
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
+
+        });
+        Log.d(ACTIVITY_NAME, "In function: onCreate()");
+
+        Button buttongotochat = findViewById(R.id.buttongotochat);
+
+        buttongotochat.setOnClickListener(v -> {
+            Intent chatIntent = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(chatIntent);
+        });
+
+        Button goToWeatherBtn = (Button) findViewById(R.id.GoToWeatherPage);
+        goToWeatherBtn.setOnClickListener(c -> {
+            Intent goToMenuPage = new Intent(ProfileActivity.this, WeatherForecast.class);
+
+            startActivityForResult(goToMenuPage, 234);
+
+        });
+
     }
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageButton.setImageBitmap(imageBitmap);
-            Log.e(ACTIVITY_NAME,"In onActivityResult");
-
+            takePictureBtn.setImageBitmap(imageBitmap);
         }
-    }
-    @Override
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
-        mImageButton = findViewById(R.id.imageButtonPicture);
-        mImageButton.setOnClickListener(b -> dispatchTakePictureIntent());
-
-        Intent dataSent = getIntent();
-        String emailSent = dataSent.getStringExtra("EMAIL");
-        String formattedString = String.format(emailSent);
-        EditText email = findViewById(R.id.editText4);
-        email.setText(formattedString);
-        Button gotochatButton = findViewById(R.id.buttongotochat);
-
-        gotochatButton.setOnClickListener( v -> {
-            Intent chatIntent = new Intent(ProfileActivity.this, ChatRoomActivity.class);
-            startActivity(chatIntent);
-        });
-        Log.e(ACTIVITY_NAME,"In onCreate()");
+        Log.d(ACTIVITY_NAME, "In function: onActivityResult()");
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.e(ACTIVITY_NAME, "In onStop()" );
-    }
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e(ACTIVITY_NAME, "In onStart()");
-
+        Log.d(ACTIVITY_NAME, "In function: onStart()");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(ACTIVITY_NAME, "In function: onResume()");
     }
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e(ACTIVITY_NAME, "In onPause()");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e(ACTIVITY_NAME, "In onResume()");
-
+        Log.d(ACTIVITY_NAME, "In function: onPause()");
     }
     @Override
-    protected void onDestroy(){
+    protected void onStop() {
+        super.onStop();
+        Log.d(ACTIVITY_NAME, "In function: onStop()");
+    }
+    @Override
+    protected void onDestroy() {
         super.onDestroy();
-        Log.e(ACTIVITY_NAME, "In onDestroy()");
-
+        Log.d(ACTIVITY_NAME, "In function: onDestroy()");
     }
 }
