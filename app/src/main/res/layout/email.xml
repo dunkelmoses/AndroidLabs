@@ -42,6 +42,16 @@
         android:layout_height="wrap_content"
         android:text="weather" />
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/weather"
+        android:text="Weather"
+        android:nextFocusDown="@id/textView2"
+        android:nextFocusUp="@id/textView"
+        android:nextFocusRight="@id/login"
+        android:nextFocusLeft="@id/editTextEmail"/>
+
+    <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             Intent goToProfile = new Intent(MainActivity.this, WeatherForecast.class);
             startActivity(goToProfile);
         });
+
     }
 
     private void saveSharedPrefs(String stringToSave)
