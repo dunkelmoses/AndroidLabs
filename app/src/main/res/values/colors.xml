@@ -11,8 +11,8 @@
     <color name="Maroon">#FF800000</color>
     <color name="Yellow">#FFFFFF00</color>
     <color name="Olive">#FF808000</color>
-    <color name="Lime">#FF00FF00</color>
-    <color name="Green">#FF008000</color>
+    <color name="Lime">#00FF00</color>
+    <color name="Green">#003A00</color>
     <color name="Aqua">#FF00FFFF</color>
     <color name="Teal">#FF008080</color>
     <color name="Blue">#FF0000FF</color>

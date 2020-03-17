@@ -26,4 +26,6 @@
 
         <!-- TODO: Remove or change this placeholder text -->
         <string name="hello_blank_fragment">مرحبا صفحه فارغه</string>
+    <string name="open">open</string>
+        <string name="close">close</string>
 </resources>

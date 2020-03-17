@@ -41,23 +41,22 @@ public class ProfileActivity extends AppCompatActivity {
         });
         Log.d(ACTIVITY_NAME, "In function: onCreate()");
 
-        Button buttongotochat = findViewById(R.id.buttongotochat);
+        Button buttonGoToChat = findViewById(R.id.buttongotochat);
 
-        buttongotochat.setOnClickListener(v -> {
+        buttonGoToChat.setOnClickListener(v -> {
             Intent chatIntent = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(chatIntent);
         });
 
-        Button goToWeatherBtn = (Button) findViewById(R.id.GoToWeatherPage);
+        Button goToWeatherBtn = (Button) findViewById(R.id.GoToToolbrPage);
         goToWeatherBtn.setOnClickListener(c -> {
-            Intent goToMenuPage = new Intent(ProfileActivity.this, WeatherForecast.class);
+            Intent goToMenuPage = new Intent(ProfileActivity.this, TestToolbar.class);
 
             startActivityForResult(goToMenuPage, 234);
 
         });
 
     }
-
 
 
     @Override
