@@ -50,11 +50,19 @@ public class DetailsFragment extends Fragment {
         CheckBox textViewTypeA = result.findViewById(R.id.tv_fragdetail_message_type);
         textViewTypeA.setChecked(msgTyp);
 
+//        if (fragment.isHidden()) {
+//            ft.show(fragment);
+//            button.setText("Hide");
+//        } else {
+//            ft.hide(fragment);
+//            button.setText("Show");
+//        }
         Button btnDelete = result.findViewById(R.id.btn_fragdetail_delete);
         btnDelete.setOnClickListener( v -> {
             if (isTablet) {
+
                 ChatRoomActivity parentActivity = (ChatRoomActivity)getActivity();
-                parentActivity.deleteMessageWithId(messageId, position);
+             //   parentActivity.deleteMessageWithId(messageId, position);
                 parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
             }
             else {

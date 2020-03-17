@@ -67,11 +67,14 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
         ListView listView = (ListView) findViewById(R.id.listConversation);
 
         listView.setOnItemLongClickListener((parent, view, position, id) -> {
+
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle(R.string.deleteMsg)
+
                     .setMessage(getString(R.string.rowIs) + position +"\n"+"The selected row ID is:" + id)
                     .setPositiveButton("yes", (click, arg) -> {
                         adapter.remove(adapter.getItem(position));
+                        DetailsFragment d = new DetailsFragment();
                     })
                     .setNegativeButton("No", (click, arg) -> {
                     })
@@ -146,7 +149,7 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
             if (resultCode == Activity.RESULT_OK) {
                 long messageId = data.getLongExtra(KEY_ID, 0);
                 int position = data.getIntExtra(POSITION, 0);
-                deleteMessageWithId(messageId, position);
+              //  deleteMessageWithId(messageId, position);
             }
         }
     }
