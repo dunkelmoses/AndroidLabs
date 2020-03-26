@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <group>
     <item android:id="@+id/facebook"
         android:title="facebook"
         android:icon="@drawable/facebook"
@@ -28,7 +28,8 @@
         app:showAsAction="always|collapseActionView"
         android:title="Search"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
 
-
+    </group>
+    <group>
     <item android:id="@+id/Chat_Page"
         android:icon="@drawable/global"
         android:title="Chat Page"
@@ -46,4 +47,5 @@
         android:title="Go back to login"
         app:showAsAction="never"
         android:orderInCategory="400"/>
+    </group>
 </menu>

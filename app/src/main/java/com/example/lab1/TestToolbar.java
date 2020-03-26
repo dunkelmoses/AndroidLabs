@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class TestToolbar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar tBar;
+    public static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,7 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.activity_test_toolbar);
 
         tBar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(tBar);
-
+        tBar.setTitle("Tool Bar");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
                 drawerLayout, tBar, R.string.open, R.string.close);
@@ -83,6 +83,9 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
             case R.id.Go_back_to_login:
                 message = "You clicked on Login";
                 break;
+            case R.id.search_item:
+                message = "You clicked on the search";
+                break;
         }
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         return true;
@@ -106,7 +109,9 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
                 break;
             case R.id.Go_back_to_login:
                 Intent  backToLogin = new Intent(TestToolbar.this, MainActivity.class);
-                startActivity(backToLogin);
+//                startActivity(backToLogin);
+//                backToLogin.putExtra("key","back");
+                startActivityForResult(backToLogin,REQUEST_CODE);
                 break;
             case R.id.search_item:
                 message = "You clicked on the search";
